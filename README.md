@@ -11,3 +11,10 @@ __________     .__   _____
 
 Réalisation d'un projet en JAVA :
     RPG d'aventure sur la base du TP labyrinthe
+
+
+-> Type de jeu :
+
+    L'idée de Zelfa est de créer un RPG multi-joueur sur la base de la thecnologie client-serveur.
+
+    Un nombre à définir de joueurs pourront se déplacer sur une carte et interragir entre eux.
