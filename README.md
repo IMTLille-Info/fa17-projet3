@@ -15,6 +15,8 @@ Réalisation d'un projet en JAVA :
 
 -> Type de jeu :
 
-    L'idée de Zelfa est de créer un RPG multi-joueur sur la base de la thecnologie client-serveur.
+    L'idée de Zelfa est de créer un RPG multi-joueur sur la base
+    de la technoloqie client-serveur.
 
-    Un nombre à définir de joueurs pourront se déplacer sur une carte et interragir entre eux.
+    Un nombre à définir de joueurs pourront se déplacer sur une
+    carte et interragir entre eux.
