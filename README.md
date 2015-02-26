@@ -94,3 +94,30 @@ Gestion des joueurs si il y a mort d'un personnage ???
     
 
 ```
+
+
+----------------------------------------------------------------------------------------------------------------------
+    
+                  _
+                 /_\
+                 \\\\     ___
+                  \\\\   /   \        _______________________________
+                   \\\\_/ \   \      /                               \
+                    \     /\__/     /    Spécifications techniques    \
+                     \O -/          \                                 /
+                  ___/ ^ \___       / _______________________________/
+                     \___/         /_/
+                     _/ \_
+                  __//   \\__
+                 /___\/_\/___\
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+Zelfa est un jeu multi-joueurs basé sur la technologie client-serveur.
+
+
+Le client affiche la position et les PV de tous les personnages sur le plateau.
+A chaque tour, le serveur envoie les nouvelles informations aux clients, qui les affiche.
+
+
