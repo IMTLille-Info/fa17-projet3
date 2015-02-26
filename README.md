@@ -53,15 +53,17 @@ Gestion des joueurs si il y a mort d'un personnage ???
                   \\\\   /   \        _______________________________
                    \\\\_/ \   \      /                               \
                     \     /\__/     /  Précisions mouvement, classes, \
-                     \O -/          \                                  /
+                     \O -/          \                                 /
                   ___/ ^ \___       / _______________________________/
                      \___/         /_/
                      _/ \_
                   __//   \\__
                  /___\/_\/___\
 
+----------------------------------------------------------------------------------------------------------------------
 
--> Le Guerrier : Equipé d'une épée/Bouclier il ne peu attaquer que la case devant lui, son bouclier
+
+-> Le Guerrier : Equipé d'une épée/Bouclier il ne peut attaquer que la case devant lui, son bouclier
     lui donnant une chance sur 6 de bloquer une attaque de front lancée contre lui. Il dispose d'un nombre de 
     points de vie suppérieur à la moyenne.
 
@@ -69,7 +71,7 @@ Gestion des joueurs si il y a mort d'un personnage ???
     le personnage sur la case sélectionnée et ceux sur les cases adjacentes subissent des dégats. Nous noterons
     que le fait de se balader en robe a ses inconvénients ... si il prend une attaque de dos, les dégats sont doublés
 
--> L'Archer : Comme son nom l'indique il va réaliser ses attaques au moyen d'un arc et de flêches. il peu lancer une 
+-> L'Archer : Comme son nom l'indique il va réaliser ses attaques au moyen d'un arc et de flêches. il peut lancer une 
     attaque jusqu'a 5 cases en face de lui. Son agilité lui permet de se déplacer un poil plus rapidement.
 
 -> Le Medic : C'est le soigneur de l'équipe, son attaque est remplacée par la possibilité de redonner des points de vie
@@ -78,8 +80,13 @@ Gestion des joueurs si il y a mort d'un personnage ???
 
 
 
-Guerrier    13   5 cases    Une case frontale    1 chance sur 6 de parer une attaque de front
-Sorcier     8    5 cases    rayon 4 cases        Dégats de dos X2 ET attaque de zone
-Archer      9    6 cases    5 cases frontale    
-Medic       7    3 cases    rayon 3 cases        Pas d'attaque mais peu soigner un allié (Entre 1 et 4HP)
+---------|------|-----------|--------------------|----------------------------------------------------------|
+Guerrier|13|5 cases|Une case frontale|1 chance sur 6 de parer une attaque de front|
+---------|------|-----------|--------------------|----------------------------------------------------------|
+Sorcier|8|5 cases|rayon 4 cases|Dégats de dos X2 ET attaque de zone|
+---------|------|-----------|--------------------|----------------------------------------------------------|
+Archer|9|6 cases|5 cases frontale| |
+---------|------|-----------|--------------------|----------------------------------------------------------|
+Medic|7|3 cases|rayon 3 cases|Pas d'attaque mais peu soigner un allié (Entre 1 et 4HP)|
+---------|------|-----------|--------------------|----------------------------------------------------------|
     
