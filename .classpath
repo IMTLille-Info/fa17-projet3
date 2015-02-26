@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/jean/Documents/TELECOM/Java_advenced/projects/projet3/lib/jars/production/onejar/kryonet-2.18-all.jar"/>
-	<classpathentry kind="lib" path="/home/jean/Documents/TELECOM/Java_advenced/projects/projet3/lib/jars/debug/onejar/kryonet-debug-2.18-all.jar"/>
+	<classpathentry kind="lib" path="/home/jean/Documents/TELECOM/Java_advenced/projects/projet3/lib/kryonet/jars/production/onejar/kryonet-2.18-all.jar"/>
+	<classpathentry kind="lib" path="/home/jean/Documents/TELECOM/Java_advenced/projects/projet3/lib/kryonet/jars/debug/onejar/kryonet-debug-2.18-all.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
