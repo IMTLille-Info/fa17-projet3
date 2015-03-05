@@ -54,9 +54,7 @@ public class WindowsGame extends BasicGame {
 	public void init(GameContainer container) throws SlickException {
 		this.container = container;
 		this.map = new TiledMap("resources/map/map.tmx");
-		spriteSheet = new SpriteSheet(
-				new Image("resources/characters/char2.png"), 32, 48);
-
+		spriteSheet = new SpriteSheet(new Image("resources/characters/char2.png"), 32, 48);
 
 		this.animations[0] = loadAnimation(spriteSheet, 0, 1, 3);
 		this.animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
