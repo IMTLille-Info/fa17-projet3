@@ -32,7 +32,7 @@ public class WindowsGame extends BasicGame {
 	static Link link;
 
 	public static void main(String[] args) throws SlickException {
-		link = new Link("127.0.0.1", 2015);
+		link = new Link("castwab.ddns.net", 2015);
 		AppGameContainer container = new AppGameContainer(new WindowsGame(), 600, 600, false);
 		container.start();
 		
@@ -86,6 +86,12 @@ public class WindowsGame extends BasicGame {
 	        case Input.KEY_DOWN:  this.direction = 2; this.moving = true; break;
 	        case Input.KEY_RIGHT: this.direction = 3; this.moving = true; break;
 	    }
+	}
+	
+	public String getXY(){
+		String varx = Float.toString(x);
+		String vary = Float.toString(y);
+		return varx+'/'+vary;
 	}
 
 }
