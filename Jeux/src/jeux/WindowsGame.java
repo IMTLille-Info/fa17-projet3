@@ -27,8 +27,6 @@ public class WindowsGame extends BasicGame {
 	private float x = 284, y = 276;
 	private int direction = 0;
 	private boolean moving = false;
-	private Animation[] animations = new Animation[8];
-	SpriteSheet spriteSheet;
 
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer container = new AppGameContainer(new WindowsGame(), 600, 600, false);
@@ -41,11 +39,12 @@ public class WindowsGame extends BasicGame {
 
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
-		g.translate(container.getWidth() / 2 - (int) this.x, 
-	            container.getHeight() / 2 - (int) this.y);
+		g.translate(container.getWidth() / 2 - (int) this.x, container.getHeight() / 2 - (int) this.y);
 		this.map.render(0, 0);
 		g.setColor(Color.black);
 		g.fillOval(x, y+35, 32, 16);
+		Player player = new Player();
+		Animation[] animations = player.CreateAnimation(new Image("resources/characters/char2.png"), 32, 48, 4);;
 		g.drawAnimation(animations[direction + (moving ? 4 : 0)], x, y);
 		
 	}
@@ -54,26 +53,8 @@ public class WindowsGame extends BasicGame {
 	public void init(GameContainer container) throws SlickException {
 		this.container = container;
 		this.map = new TiledMap("resources/map/map.tmx");
-		spriteSheet = new SpriteSheet(new Image("resources/characters/char2.png"), 32, 48);
-
-		this.animations[0] = loadAnimation(spriteSheet, 0, 1, 3);
-		this.animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
-	    this.animations[2] = loadAnimation(spriteSheet, 0, 1, 0);
-	    this.animations[3] = loadAnimation(spriteSheet, 0, 1, 2);
-	    this.animations[4] = loadAnimation(spriteSheet, 1, 4, 3);
-	    this.animations[5] = loadAnimation(spriteSheet, 1, 4, 1);
-	    this.animations[6] = loadAnimation(spriteSheet, 1, 4, 0);
-	    this.animations[7] = loadAnimation(spriteSheet, 1, 4, 2);
-		
-	
 	}
 
-	private Animation loadAnimation(SpriteSheet spriteSheet, int startX, int endX, int y) {
-	    Animation animation = new Animation();
-	    for (int x = startX; x < endX; x++)
-	        animation.addFrame(spriteSheet.getSprite(x, y), 120);
-	    return animation;
-	}
 
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
