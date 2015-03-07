@@ -29,10 +29,13 @@ public class WindowsGame extends BasicGame {
 	private boolean moving = false;
 	private Animation[] animations = new Animation[8];
 	SpriteSheet spriteSheet;
+	static Link link;
 
 	public static void main(String[] args) throws SlickException {
+		link = new Link(2015);
 		AppGameContainer container = new AppGameContainer(new WindowsGame(), 600, 600, false);
 		container.start();
+		
 	}
 
 	public WindowsGame() {
