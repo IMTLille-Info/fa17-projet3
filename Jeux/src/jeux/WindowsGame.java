@@ -16,7 +16,7 @@ import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.Image;
 
 /**
- * @author nicolaspicart
+ * @author nicolaspicart, jeancastel
  *
  */
 
@@ -32,7 +32,7 @@ public class WindowsGame extends BasicGame {
 	static Link link;
 
 	public static void main(String[] args) throws SlickException {
-		link = new Link(2015);
+		link = new Link("127.0.0.1", 2015);
 		AppGameContainer container = new AppGameContainer(new WindowsGame(), 600, 600, false);
 		container.start();
 		
