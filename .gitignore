@@ -2,6 +2,7 @@
 *.ear
 *.war
 */.DS_Store
+.metadata
 .mtj.tmp/
 /Jeux/bin/
 /RemoteSystemsTempFiles/
