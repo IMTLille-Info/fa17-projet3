@@ -11,10 +11,5 @@
 hs_err_pid*
 
 /Jeux/bin/
-/Jeux/.settings/
-.metadata/
-/Jeux/.metadata
-/Jeux/.DS_Store
-.DS_Store
+*/.DS_Store
 /RemoteSystemsTempFiles/
-/Jeux/.classpath
