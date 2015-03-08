@@ -1,0 +1,79 @@
+/**
+ * 
+ */
+package jeux;
+
+import org.newdawn.slick.Animation;
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.BasicGame;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.tiled.TiledMap;
+import org.newdawn.slick.Image;
+
+/**
+ * @author nicolaspicart
+ *
+ */
+
+public class WindowsGame extends BasicGame {
+
+	private GameContainer container;
+	private TiledMap map;
+	private float x = 300, y = 300;
+	private int direction = 0;
+	private boolean moving = false;
+	private Animation[] animations = new Animation[4];
+	SpriteSheet spriteSheet;
+
+	public static void main(String[] args) throws SlickException {
+		AppGameContainer container = new AppGameContainer(new WindowsGame(),800, 600, false);
+		container.start();
+	}
+
+	public WindowsGame() {
+		super("Zelfa");
+	}
+
+	@Override
+	public void render(GameContainer container, Graphics g) throws SlickException {
+		this.map.render(0, 0);
+		g.drawAnimation(animations[direction + (moving ? 4 : 0)], x, y);
+	}
+
+	@Override
+	public void init(GameContainer container) throws SlickException {
+		this.container = container;
+		this.map = new TiledMap("resources/map/map.tmx");
+		spriteSheet = new SpriteSheet("resources/characters/char3.png", 64, 64);
+	    //this.animations[0] = loadAnimation(spriteSheet, 0, 1, 0);
+	    //this.animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
+	    //this.animations[2] = loadAnimation(spriteSheet, 0, 1, 2);
+	    //this.animations[3] = loadAnimation(spriteSheet, 0, 1, 3);
+	}
+	
+	
+	private Animation loadAnimation(SpriteSheet spriteSheet, int startX, int endX, int y) {
+	    Animation animation = new Animation();
+	    for (int x = startX; x < endX; x++) {
+	        animation.addFrame(spriteSheet.getSprite(x, y), 100);
+	    }
+	    return animation;
+	}
+
+
+	@Override
+	public void update(GameContainer container, int delta) throws SlickException {
+	}
+
+	@Override
+	public void keyReleased(int key, char c) {
+		if (Input.KEY_ESCAPE == key)
+			container.exit();
+
+	}
+
+}
