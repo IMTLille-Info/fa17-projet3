@@ -1,6 +1,6 @@
 # Groupe 2 du jeudi
 
-
+[![Build Status](https://travis-ci.org/TL1-fa17/projet3.svg?branch=master)](https://travis-ci.org/TL1-fa17/projet3)
 
 ```
      ___________
