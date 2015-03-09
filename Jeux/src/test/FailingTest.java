@@ -8,6 +8,6 @@ public class FailingTest {
 
     @Test
     public void testJustHereToSeeIfTravisRunThenPleaseRemoveAndWriteRealOnes() {
-        //fail();
+        fail();
     }
 }
