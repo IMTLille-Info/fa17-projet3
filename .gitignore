@@ -7,5 +7,6 @@
 /RemoteSystemsTempFiles/
 hs_err_pid*
 test-report
-.metadata/*
+/.metadata/
+/.metadata/*
 /Jeux/.classpath
