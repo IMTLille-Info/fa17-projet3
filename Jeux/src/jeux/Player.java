@@ -11,7 +11,6 @@ public class Player {
 	private Animation[] animations = new Animation[8];
 	
 	Player(){
-		
 	}
 	
 	protected Animation[] CreateAnimation(Image img,int largeur,int hauteur, int nbImage) throws SlickException{

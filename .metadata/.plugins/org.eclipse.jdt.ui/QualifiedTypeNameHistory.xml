@@ -11,4 +11,22 @@
 <fullyQualifiedTypeName name="org.newdawn.slick.util.BufferedImageUtil"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.opengl.Texture"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.BasicGame"/>
+<fullyQualifiedTypeName name="net.java.games.input.AbstractComponent"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.gui.AbstractComponent"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.geom.Shape"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.Input"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.Color"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.GameContainer"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.geom.Rectangle"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.geom.Vector2f"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.gui.GUIContext"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.gui.ComponentListener"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.SlickException"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.Graphics"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
 </qualifiedTypeNameHistroy>
