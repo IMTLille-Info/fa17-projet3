@@ -5,6 +5,7 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Jeux/lib/natives"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/ibxm.jar"/>
 	<classpathentry kind="lib" path="lib/jinput.jar"/>
@@ -22,6 +23,5 @@
 	<classpathentry kind="lib" path="lib/slick-examples.jar"/>
 	<classpathentry kind="lib" path="lib/slick.jar"/>
 	<classpathentry kind="lib" path="lib/tinylinepp.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
