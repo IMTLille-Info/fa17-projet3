@@ -1,26 +1,28 @@
 package jeux;
 
-import java.io.*;
-import java.net.*;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 
 public class Client {
 
 	public static Socket socket = null;
 	public static Thread t1;
 	
-	public Client() {
-	
+
+	Client(String ip, int port) {	
 		
 	try {
 		
 		System.out.println("Demande de connexion");
-		socket = new Socket("castwab.ddns.net",2015);
-		System.out.println("Connexion ��tablie avec le serveur, authentification :"); // Si le message s'affiche c'est que je suis connect��
+		socket = new Socket(InetAddress.getByName(ip),port);
+		System.out.println("Connexion établie avec le serveur, authentification :"); // Si le message s'affiche c'est que je suis connecté
+
 		
 		t1 = new Thread(new Connexion(socket));
 		t1.start();
-		
-		
 		
 	} catch (UnknownHostException e) {
 	  System.err.println("Impossible de se connecter �� l'adresse "+socket.getLocalAddress());
