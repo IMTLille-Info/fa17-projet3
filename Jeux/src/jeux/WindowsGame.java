@@ -25,10 +25,14 @@ public class WindowsGame extends BasicGame {
 	private int direction = 0; // Direction du joueur sur la carte
 	private boolean moving = false; // Etat du joueur en mouvement/static
 	Animation[] animations; // Animation du joueur
+	
+	static Client client;
+	
 	private CaseListener ecouteur;
 	public static Maps carte; // Maps avec les différentes cases
 
 	public static void main(String[] args) throws SlickException {
+		client = new Client();
 		AppGameContainer container = new AppGameContainer(new WindowsGame(),xcarte, ycarte, false); // Création de la fenêtre de jeux
 		container.setShowFPS(false); // Cacher l'affichage FPS
 		container.setVSync(true);	
