@@ -25,9 +25,9 @@ public class Client {
 		t1.start();
 		
 	} catch (UnknownHostException e) {
-	  System.err.println("Impossible de se connecter �� l'adresse "+socket.getLocalAddress());
+	  System.err.println("Impossible de se connecter �� l'adresse "+ip);
 	} catch (IOException e) {
-	  System.err.println("Aucun serveur �� l'��coute du port "+socket.getLocalPort());
+	  System.err.println("Aucun serveur �� l'��coute du port "+port);
 	}
 	
 	

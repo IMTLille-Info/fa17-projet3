@@ -17,19 +17,19 @@ import org.newdawn.slick.tiled.TiledMap;
 public class WindowsGame extends BasicGame {
 
 	private TiledMap map; // Map
-	private float x = 0, y = 30; // Position du joueur au démarrage du jeux
+	public float x; // Position du joueur au démarrage du jeux
+	public float y;
 	private static int ycarte = 600, xcarte = 600; // Coordonnées de la carte
-	private int direction = 0; // Direction du joueur sur la carte
-	private boolean moving = false; // Etat du joueur en mouvement/static
+	public int direction = 0; // Direction du joueur sur la carte
+	protected boolean moving = false; // Etat du joueur en mouvement/static
 	Animation[] animations; // Animation du joueur
-	
+	Player player1;
 	static Client client;
-	
 	private CaseListener ecouteur;
-	public static Maps carte; // Maps avec les différentes cases
+	public static Maps cases; // Maps avec les différentes cases
 
 	public static void main(String[] args) throws SlickException {
-		client = new Client("127.0.0.1", 2015);
+		//client = new Client("castwab.ddns.net", 2015);
 		AppGameContainer container = new AppGameContainer(new WindowsGame(),xcarte, ycarte, false); // Création de la fenêtre de jeux
 		container.setShowFPS(false); // Cacher l'affichage FPS
 		container.setVSync(true);	
@@ -48,10 +48,11 @@ public class WindowsGame extends BasicGame {
 	 */
 	@Override
 	public void init(GameContainer container) throws SlickException {
-		this.map = new TiledMap("resources/map/map2.tmx"); // Déclaration de la map
-		Player player1 = new Player(); // Création d'un joueur 
-		animations = player1.CreateAnimation(new Image("resources/characters/char2.png"), 32, 48, 4); // Enregistrement des différentes positions et animations du personnage
-		carte = new Maps(container, ecouteur); // Mise en place des cases
+		
+		map = new TiledMap("resources/map/map2.tmx"); // Déclaration de la map
+		player1 = new Player(new Image("resources/characters/char2.png"), 32, 48, 4); // Création d'un joueur 
+		ecouteur = new CaseListener(container);
+		cases = new Maps(container, ecouteur); // Mise en place des cases
 	}
 
 	/*
@@ -59,10 +60,15 @@ public class WindowsGame extends BasicGame {
 	 */
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
-		this.map.render(0, 0); // Affichage de la carte (Visuel)
-		ecouteur = new CaseListener(container); 
-		carte.drawMap(container,g); // Affichage des cases
-		g.drawAnimation(animations[direction + (moving ? 4 : 0)], x, y); // Affichage des différentes position du joueur en fonction des coordonnées
+		map.render(0, 0); // Affichage de la carte (Visuel)
+		cases.drawMap(container,g); // Affichage des cases
+		player1.move(x,y,g,direction,moving);
+	}
+	
+	@Override
+	public void mouseClicked(int button, int x, int y, int clickCount){
+		//this.x = x - 15;
+		//this.y = y - 30;
 	}
 
 	/*
@@ -73,16 +79,16 @@ public class WindowsGame extends BasicGame {
 		if (this.moving) {
 			switch (this.direction) {
 			case 0:
-				this.y -= .1f * delta;
-				break;
-			case 1:
 				this.x -= .1f * delta;
 				break;
+			case 1:
+				this.y -= .1f * delta;
+				break;
 			case 2:
-				this.y += .1f * delta;
+				this.x += .1f * delta;
 				break;
 			case 3:
-				this.x += .1f * delta;
+				this.y += .1f * delta;
 				break;
 			}
 		}
@@ -97,11 +103,11 @@ public class WindowsGame extends BasicGame {
 	}
 	
 	/*
-	 * Evenement lors du clic de la souris
+	 * Evenement lors du clic sur les touches directionnelles
 	 */
 	@Override
 	public void keyPressed(int key, char c) {
-		switch (key) {
+		/*switch (key) {
 		case Input.KEY_UP:
 			this.direction = 0;
 			this.moving = true;
@@ -118,7 +124,7 @@ public class WindowsGame extends BasicGame {
 			this.direction = 3;
 			this.moving = true;
 			break;
-		}
+		}*/
 	}
 
 	/*

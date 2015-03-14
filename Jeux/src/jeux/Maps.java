@@ -28,7 +28,7 @@ public class Maps {
 		for(int i = 0; i< nbCaseHorizontal; i++){
 			for(int j = 0; j< nbCaseVertical; j++){
 				String nomCase = Integer.toString(index);
-				Case carre = new Case(container, new Rectangle(posX, posY, 30, 30),listener,positionEcran, "Test");
+				Case carre = new Case(container, new Rectangle(posX, posY, 30, 30),listener,positionEcran, "Test", posX-15, posY-15);
 				listeCases.put(nomCase,carre);
 				posX += 30; 
 				index++;
@@ -43,5 +43,9 @@ public class Maps {
 			Case carre = (Case) listeCases.get(mapKey);
 			carre.render(container, g);
 		}
+	}
+	
+	public Map<String, Case> getCase(){
+		return listeCases;
 	}
 }
