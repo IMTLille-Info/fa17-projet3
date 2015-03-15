@@ -20,7 +20,7 @@ public class WindowsGame extends BasicGame {
 	public float x; // Position du joueur au démarrage du jeux
 	public float y;
 	private static int ycarte = 600, xcarte = 600; // Coordonnées de la carte
-	public int direction = 0; // Direction du joueur sur la carte
+	public int direction = 2; // Direction du joueur sur la carte
 	protected boolean moving = false; // Etat du joueur en mouvement/static
 	Animation[] animations; // Animation du joueur
 	Player player1;
@@ -67,8 +67,8 @@ public class WindowsGame extends BasicGame {
 	
 	@Override
 	public void mouseClicked(int button, int x, int y, int clickCount){
-		//this.x = x - 15;
-		//this.y = y - 30;
+		this.x = ecouteur.getX();
+		this.y = ecouteur.getY();
 	}
 
 	/*
@@ -78,18 +78,18 @@ public class WindowsGame extends BasicGame {
 	public void update(GameContainer container, int delta) throws SlickException {
 		if (this.moving) {
 			switch (this.direction) {
-			case 0:
-				this.x -= .1f * delta;
-				break;
-			case 1:
-				this.y -= .1f * delta;
-				break;
-			case 2:
-				this.x += .1f * delta;
-				break;
-			case 3:
-				this.y += .1f * delta;
-				break;
+				case 0:
+					this.y -= .1f * delta;
+					break;
+				case 1:
+					this.x -= .1f * delta;
+					break;
+				case 2:
+					this.y += .1f * delta;
+					break;
+				case 3:
+					this.x += .1f * delta;
+					break;
 			}
 		}
 	}
@@ -107,7 +107,7 @@ public class WindowsGame extends BasicGame {
 	 */
 	@Override
 	public void keyPressed(int key, char c) {
-		/*switch (key) {
+		switch (key) {
 		case Input.KEY_UP:
 			this.direction = 0;
 			this.moving = true;
@@ -124,7 +124,7 @@ public class WindowsGame extends BasicGame {
 			this.direction = 3;
 			this.moving = true;
 			break;
-		}*/
+		}
 	}
 
 	/*
