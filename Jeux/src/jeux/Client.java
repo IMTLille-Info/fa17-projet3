@@ -17,7 +17,7 @@ public class Client {
 	try {
 		
 		System.out.println("Demande de connexion");
-		socket = new Socket(InetAddress.getByName(ip),port);
+		socket = new Socket(InetAddress.getByName(ip), port);
 		System.out.println("Connexion établie avec le serveur, authentification :"); // Si le message s'affiche c'est que je suis connecté
 
 		
@@ -25,9 +25,9 @@ public class Client {
 		t1.start();
 		
 	} catch (UnknownHostException e) {
-	  System.err.println("Impossible de se connecter �� l'adresse "+socket.getLocalAddress());
+	  System.err.println("Impossible de se connecter a l'adresse " + ip);
 	} catch (IOException e) {
-	  System.err.println("Aucun serveur �� l'��coute du port "+socket.getLocalPort());
+	  System.err.println("Aucun serveur a l'ecoute du port " + port);
 	}
 	
 	
