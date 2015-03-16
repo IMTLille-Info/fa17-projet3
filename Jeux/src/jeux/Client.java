@@ -25,6 +25,7 @@ public class Client {
 		t1.start();
 		
 	} catch (UnknownHostException e) {
+<<<<<<< HEAD
 	  System.err.println("Impossible de se connecter a l'adresse " + ip);
 	} catch (IOException e) {
 	  System.err.println("Aucun serveur a l'ecoute du port " + port);

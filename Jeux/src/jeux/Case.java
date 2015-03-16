@@ -18,12 +18,15 @@ public class Case extends AbstractComponent {
 	private boolean over,mouseDown; 	// Lors du passage/clic de la souris sur la case
 	private Color current; 				// Couleur de la case
 	Shape area;
+	private float posx = 30,posy = 30;
 
-	public Case(GUIContext container, Rectangle shape, ComponentListener listener,Vector2f posEcran, String name) {
+	public Case(GUIContext container, Rectangle shape, ComponentListener listener,Vector2f posEcran, String name, float posx, float posy) {
 		super(container);
 		addListener(listener);
 		this.posEcran = posEcran;
 		this.nomCase = name;
+		this.posx = posx;
+		this.posy = posy;
 		Input input = container.getInput();
 		this.area = shape;
 		over = area.contains(input.getMouseX(), input.getMouseY());
@@ -35,8 +38,9 @@ public class Case extends AbstractComponent {
 			current = new Color(Color.transparent);
 		} else { // Si la case est survolé par la souris
 			current = new Color(Color.red);
+			//System.out.println(mouseDown);
 			if (mouseDown) { // Si la case est cliqué
-				current = new Color(Color.red);
+				current = new Color(Color.pink);
 				notifyListeners();
 			}
 		}
@@ -51,15 +55,21 @@ public class Case extends AbstractComponent {
 	public int getWidth() {
 		return 0;
 	}
-
-	@Override
-	public int getX() {
-		return 0;
+	
+	public void setPosX(float posx) {
+		this.posx = posx;
 	}
 
-	@Override
-	public int getY() {
-		return 0;
+	public void setPosY(float posy) {
+		this.posy = posy;
+	}
+
+	public float getPosX() {
+		return this.posx;
+	}
+
+	public float getPosY() {
+		return this.posy;
 	}
 	
 	public Vector2f getPosEcran(){
@@ -80,12 +90,15 @@ public class Case extends AbstractComponent {
 	public void mouseMoved(int oldx, int oldy, int newx, int newy) {
 		 over = area.contains(newx, newy);
 	}
+	
+	public boolean whichButton(float x, float y){
+		return area.contains(x, y);
+	}
 
 	public void mousePressed(int button, int mx, int my) {
 		over = area.contains(mx, my);
-		// A corriger provoque une exception
-		//if (button == 0)
-		//	mouseDown = true; 
+		if (button == 0)
+			mouseDown = true; 
 	}
 
 	public void mouseReleased(int button, int mx, int my) {
@@ -96,6 +109,16 @@ public class Case extends AbstractComponent {
 	  
 	public String toString(String test){
 		return "Nom Case : "+ nomCase + " Position x " + this.posEcran.x + " Position y : " + this.posEcran.y;
+	}
+
+	@Override
+	public int getX() {
+		return (int) this.posx;
+	}
+
+	@Override
+	public int getY() {
+		return (int) this.posy;
 	}
 
 }
