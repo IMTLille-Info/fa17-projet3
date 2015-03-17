@@ -2,7 +2,6 @@ package jeux;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
@@ -28,7 +27,7 @@ public class Maps {
 		for(int i = 0; i< nbCaseHorizontal; i++){
 			for(int j = 0; j< nbCaseVertical; j++){
 				String nomCase = Integer.toString(index);
-				Case carre = new Case(container, new Rectangle(posX, posY, 30, 30),listener,positionEcran, "Test", posX-1, posY-20, j+1, i+1);
+				Case carre = new Case(container, new Rectangle(posX+1, posY+1, 28, 28),listener,positionEcran, "Case : " + j+1 + " / " + i+1, posX-1, posY-20, j+1, i+1);
 				listeCases.put(nomCase,carre);
 				posX += 30; 
 				index++;

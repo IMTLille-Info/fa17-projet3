@@ -38,12 +38,11 @@ public class Case extends AbstractComponent {
 
 	private void updateImage(Graphics g) {
 		if (!over) { // Si la case n'est pas coché
-			current = new Color(Color.transparent);
+			current = new Color(Color.white);
 		} else { // Si la case est survolé par la souris
-			//current = new Color(Color.red);
-			//System.out.println(mouseDown);
+			current = new Color(Color.red);
 			if (mouseDown) { // Si la case est cliqué
-				//current = new Color(Color.pink);
+				current = new Color(Color.magenta);
 				notifyListeners();
 			}
 		}
@@ -51,12 +50,12 @@ public class Case extends AbstractComponent {
 
 	@Override
 	public int getHeight() {
-		return this.colonne;
+		return this.colonne; // Solution à modifier
 	}
 
 	@Override
 	public int getWidth() {
-		return this.ligne;
+		return this.ligne; // Solution à modifier
 	}
 	
 	public void setPosX(float posx) {
@@ -67,7 +66,6 @@ public class Case extends AbstractComponent {
 		this.posy = posy;
 	}
 
-	
 	public Vector2f getPosEcran(){
 		return posEcran;
 	}
@@ -81,6 +79,7 @@ public class Case extends AbstractComponent {
 	
 	@Override
 	public void setLocation(int arg0, int arg1) {
+		
 	}
 
 	public void mouseMoved(int oldx, int oldy, int newx, int newy) {
