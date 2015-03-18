@@ -18,7 +18,7 @@ public class Player {
 	 * 3 -> vers la droite 
 	 * 4 -> vers lehaut
 	 */
-	protected boolean moving = true; // Etat du joueur en mouvement/static
+	protected boolean moving = false; // Etat du joueur en mouvement/static
 
 	Player(Image img, int largeur, int hauteur, int nbImage, float x, float y) throws SlickException {
 		this.x = x;
@@ -45,35 +45,38 @@ public class Player {
 		return animation;
 	}
 
-	public void move(Graphics g, float toX, float toY) {
-		if((int) this.getPositionX() != (int) toX && (int) this.getPositionY() != (int) toY){ // Si la position de départ et l'arrivé sont différentes
+	public void move(Graphics g, float toX, float toY) throws SlickException {
+		if(this.getPositionX() != toX || this.getPositionY() != toY){ // Si la position de départ et l'arrivé sont différentes
 			this.moving = true;
-			// On s'occupe d'abord du déplacement vertical
-			if ((int) toX != (int) this.getPositionX()) {
-				if (toX < this.getPositionX()) { // Si la destination se trouveà gauche du personnage
-						this.direction = 1;
-				} else { // Si la destination se trouve à droite du personnage
-						this.direction = 3;
+			if ((this.direction == 1 && (double) this.getPositionX() <= (double) toX) || (this.direction == 3 && (double) this.getPositionX() >= (double) toX)){
+				this.setPositionX(toX); 
+			} else {
+				// On s'occupe d'abord du déplacement vertical
+				if (toX != this.getPositionX()) {
+					if ((double) toX < (double) this.getPositionX()) { // Si la destination se trouveà gauche du personnage
+							this.direction = 1;
+					} else { // Si la destination se trouve à droite du personnage
+							this.direction = 3;
+					}
 				}
 			}
-			
-			if (this.direction == 1 && (int) this.getPositionX() <= (int) toX || this.direction == 3 && (int) this.getPositionX() >= (int) toX)
-				this.x = toX; 
-
 			// Une fois que le joueur est bien placé horizontalement on le déplace verticalement
-			if ((int) toX == (int) this.getPositionX()) {
-				if (toY < this.getPositionY()) { // Si la destination se trouve au dessus du personnage
-						this.direction = 4;
-				} else { // Si la destination se trouve en dessous du personnage
-						this.direction = 2;
-				}
-				if (this.direction == 4 && (int) this.getPositionY() <= (int) toY || this.direction == 2 && (int) this.getPositionY() >= (int) toY) {
-					this.y = toY; 
+			if (toX == this.getPositionX() ) {
+				if (this.direction == 0 && this.getPositionY() <= toY || this.direction == 2 && this.getPositionY() >= toY) {
+					this.setPositionY(toY);
 					this.moving = false;
+				} else {
+					if (toY < this.getPositionY()) { // Si la destination se trouve au dessus du personnage
+							this.direction = 0;
+					} else { // Si la destination se trouve en dessous du personnage
+							this.direction = 2;
+					}
 				}
+				
 			}
-		} else
-			this.moving = false;
+		} else {
+			this.direction = 2;
+		}
 		g.drawAnimation(this.animations[this.direction + (this.moving ? 4 : 0)],this.x, this.y); // Animation du joueur
 	}
 
@@ -84,21 +87,29 @@ public class Player {
 	public float getPositionY() {
 		return this.y;
 	}
+	
+	public void setPositionX(float posx) {
+		this.x = posx;
+	}
+
+	public void setPositionY(float posy) {
+		this.y = posy;
+	}
 
 	public void updateImage(int delta) {
 		if (this.moving) {
 			switch (this.direction) {
 				case 0:
-					this.y -= .1f * delta;
+					this.y -= .1 * delta;
 					break;
 				case 1:
-					this.x -= .1f * delta;
+					this.x -= .1 * delta;
 					break;
 				case 2:
-					this.y += .1f * delta;
+					this.y += .1 * delta;
 					break;
 				case 3:
-					this.x += .1f * delta;
+					this.x += .1 * delta;
 					break;
 			}
 		}
