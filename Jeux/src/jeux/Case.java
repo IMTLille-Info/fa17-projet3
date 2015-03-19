@@ -19,14 +19,17 @@ public class Case extends AbstractComponent {
 	private Color current; 				// Couleur de la case
 	Shape area;
 	private float posx = 30,posy = 30;
+	private int ligne,colonne;
 
-	public Case(GUIContext container, Rectangle shape, ComponentListener listener,Vector2f posEcran, String name, float posx, float posy) {
+	public Case(GUIContext container, Rectangle shape, ComponentListener listener,Vector2f posEcran, String name, float posx, float posy, int colonne, int ligne) {
 		super(container);
 		addListener(listener);
 		this.posEcran = posEcran;
 		this.nomCase = name;
 		this.posx = posx;
 		this.posy = posy;
+		this.colonne = colonne;
+		this.ligne = ligne;
 		Input input = container.getInput();
 		this.area = shape;
 		over = area.contains(input.getMouseX(), input.getMouseY());
@@ -35,12 +38,11 @@ public class Case extends AbstractComponent {
 
 	private void updateImage(Graphics g) {
 		if (!over) { // Si la case n'est pas coché
-			current = new Color(Color.transparent);
+			current = new Color(Color.white);
 		} else { // Si la case est survolé par la souris
 			current = new Color(Color.red);
-			//System.out.println(mouseDown);
 			if (mouseDown) { // Si la case est cliqué
-				current = new Color(Color.pink);
+				current = new Color(Color.magenta);
 				notifyListeners();
 			}
 		}
@@ -48,12 +50,12 @@ public class Case extends AbstractComponent {
 
 	@Override
 	public int getHeight() {
-		return 0;
+		return this.colonne; // Solution à modifier
 	}
 
 	@Override
 	public int getWidth() {
-		return 0;
+		return this.ligne; // Solution à modifier
 	}
 	
 	public void setPosX(float posx) {
@@ -64,14 +66,6 @@ public class Case extends AbstractComponent {
 		this.posy = posy;
 	}
 
-	public float getPosX() {
-		return this.posx;
-	}
-
-	public float getPosY() {
-		return this.posy;
-	}
-	
 	public Vector2f getPosEcran(){
 		return posEcran;
 	}
@@ -85,6 +79,7 @@ public class Case extends AbstractComponent {
 	
 	@Override
 	public void setLocation(int arg0, int arg1) {
+		
 	}
 
 	public void mouseMoved(int oldx, int oldy, int newx, int newy) {
@@ -119,6 +114,14 @@ public class Case extends AbstractComponent {
 	@Override
 	public int getY() {
 		return (int) this.posy;
+	}
+	
+	public int getLigne() {
+		return this.ligne;
+	}
+
+	public int getColonne() {
+		return this.colonne;
 	}
 
 }

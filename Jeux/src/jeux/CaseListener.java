@@ -7,6 +7,7 @@ import org.newdawn.slick.gui.ComponentListener;
 
 public class CaseListener extends WindowsGame implements ComponentListener {
 	Graphics g;
+	int posX,posY,colonne,ligne;
 	  
 	public CaseListener(GameContainer c){
 		 g = c.getGraphics();
@@ -14,22 +15,26 @@ public class CaseListener extends WindowsGame implements ComponentListener {
 
 	@Override
 	public void componentActivated(AbstractComponent source) {
-		//this.player1.move(source.getX(),source.getY(),g,this.direction,this.moving);
-		this.x = source.getX();
-		this.y = source.getY();
-		//g.drawString("la case "+source.getClass().getName()+" est activée", 200, 200);
+		this.posX = source.getX();
+		this.posY = source.getY();
+		this.colonne = source.getHeight();
+		this.ligne = source.getWidth();
 	}
 	
-	public void dessineGUI(GameContainer container, Graphics g) {
-		
+	public int getX() {
+		return (int) this.posX;
 	}
 	
-	@Override
-	public void mouseClicked(int button, int x, int y, int clickCount){
-		System.out.println("COUCOUTAMERE");
+	public int getY() {
+		return (int) this.posY;
 	}
 	
-	public String toString(){
-		return "test";
+	public int getColonne() {
+		return (int) this.colonne;
 	}
+	
+	public int getLigne() {
+		return (int) this.ligne;
+	}
+	
 }
