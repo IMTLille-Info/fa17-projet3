@@ -20,10 +20,10 @@ public class WindowsGame extends BasicGame {
 	static Client client;
 	private CaseListener ecouteur;
 	private int Newy = 0, Newx = 0;
-	public static Maps cases; // Maps avec les différentes cases
+	public Maps cases; // Maps avec les différentes cases
 
 	public static void main(String[] args) throws SlickException {
-		//client = new Client("castwab.ddns.net", 2015);
+		client = new Client("127.0.0.1", 2015);
 		AppGameContainer container = new AppGameContainer(new WindowsGame(),xcarte, ycarte, false); // Création de la fenêtre de jeux
 		container.setShowFPS(false); // Cacher l'affichage FPS
 		container.setVSync(true);	
@@ -40,7 +40,7 @@ public class WindowsGame extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		map = new TiledMap("resources/map/map2.tmx"); // Déclaration de la map
-		player1 = new Player(new Image("resources/characters/char2.png"), 32, 48, 4, 0, 0); // Création d'un joueur 
+		player1 = new Player(new Image("resources/characters/char2.png"), 32, 48, 4, 0, 0, 100, 5); // Création d'un joueur 
 		ecouteur = new CaseListener(container); // Ecouteurs sur chaque case
 		cases = new Maps(container, ecouteur); // Mise en place des cases
 	}
@@ -59,6 +59,9 @@ public class WindowsGame extends BasicGame {
 	public void mouseClicked(int button, int x, int y, int clickCount){
 		this.Newx = ecouteur.getX();
 		this.Newy = ecouteur.getY();
+		this.player1.setCurrentCol(ecouteur.getColonne());
+		this.player1.setCurrentLine(ecouteur.getLigne());
+		this.player1.check_movable(this.cases);
 	}
 
 	/*
