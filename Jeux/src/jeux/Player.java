@@ -84,10 +84,9 @@ public class Player {
 				}	
 			} else if(this.getPositionY() == toY && toX == this.getPositionX() )
 				this.moving = false;
-		} else {
+		} else
 			this.moving = false;
-		}
-	
+
 		g.drawAnimation(this.animations[this.direction + (this.moving ? 4 : 0)],this.x, this.y); // Animation du joueur
 	}
 

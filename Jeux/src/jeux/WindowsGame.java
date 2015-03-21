@@ -27,6 +27,7 @@ public class WindowsGame extends BasicGame {
 		AppGameContainer container = new AppGameContainer(new WindowsGame(),xcarte, ycarte, false); // Création de la fenêtre de jeux
 		container.setShowFPS(false); // Cacher l'affichage FPS
 		container.setVSync(true);	
+		container.setTargetFrameRate(60);
 		container.start();
 	}
 
