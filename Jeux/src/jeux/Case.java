@@ -16,10 +16,11 @@ public class Case extends AbstractComponent {
 	private Vector2f posEcran = null; 	// Position de la case sur l'écran
 	private String nomCase; 			// Nom de la case
 	private boolean over,mouseDown; 	// Lors du passage/clic de la souris sur la case
-	private Color current; 				// Couleur de la case
+	private Color current_color; 				// Couleur de la case
 	Shape area;
 	private float posx = 30,posy = 30;
 	private int ligne,colonne;
+	private boolean movable = true;
 
 	public Case(GUIContext container, Rectangle shape, ComponentListener listener,Vector2f posEcran, String name, float posx, float posy, int colonne, int ligne) {
 		super(container);
@@ -37,14 +38,16 @@ public class Case extends AbstractComponent {
 	}
 
 	private void updateImage(Graphics g) {
-		if (!over) { // Si la case n'est pas coché
-			current = new Color(Color.white);
-		} else { // Si la case est survolé par la souris
-			current = new Color(Color.red);
+		if (!over && !movable) { // Si la case n'est pas survolée et pas movable
+			current_color = new Color(Color.white);
+		} else if (over && movable) { // Si la case est survolé par la souris
+			current_color = new Color(Color.blue);
 			if (mouseDown) { // Si la case est cliqué
-				current = new Color(Color.magenta);
+				current_color = new Color(Color.magenta);
 				notifyListeners();
 			}
+		} else if (movable){
+			current_color = new Color(Color.green);
 		}
 	}
 
@@ -72,8 +75,11 @@ public class Case extends AbstractComponent {
 	
 	@Override
 	public void render(GUIContext container, Graphics g) throws SlickException {
-		g.setColor(current);
+		g.setColor(current_color);
 		g.fill(area);
+		if(this.over){
+			
+		}
 		updateImage(g); 
 	}
 	
@@ -122,6 +128,14 @@ public class Case extends AbstractComponent {
 
 	public int getColonne() {
 		return this.colonne;
+	}
+	
+	public boolean getmovable() {
+		return movable;
+	}
+
+	public void setmovable(boolean is_movable) {
+		this.movable = is_movable;
 	}
 
 }

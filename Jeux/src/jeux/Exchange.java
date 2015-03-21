@@ -32,12 +32,9 @@ public class Exchange implements Runnable {
 			t4.start();
 			Thread t3 = new Thread(new Receive(in));
 			t3.start();
-		
-		   
 		    
 		} catch (IOException e) {
 			System.err.println("Le serveur distant s'est déconnecté !");
 		}
 	}
-
 }

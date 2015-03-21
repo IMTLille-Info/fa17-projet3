@@ -7,7 +7,6 @@ import java.net.ServerSocket;
 public class Server {
  public static ServerSocket ss = null;
  public static Thread t;
-
  
 	public static void main(String[] args) {
 		
@@ -21,7 +20,7 @@ public class Server {
 			t.start();
 			
 		} catch (IOException e) {
-			System.err.println("Le port "+ss.getLocalPort()+" est déjà utilisé !");
+			System.err.println("Le port " + port + " est déjà utilisé !");
 		}
 	
 	}

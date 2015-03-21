@@ -11,6 +11,11 @@ public class Player {
 	SpriteSheet spriteSheet;
 	private Animation[] animations = new Animation[8]; // Tableau d'animations
 	private float x, y; // Coordonnées du joueur
+	private int currentLine, currentCol;
+
+	private int hp; // Points de vie du joueur
+	private int move_capacity; // Capacité de mouvement
+
 	public int direction = 2; // Direction du joueur sur la carte
 	/*
 	 * 1 -> vers la gauche 
@@ -20,10 +25,13 @@ public class Player {
 	 */
 	protected boolean moving = false; // Etat du joueur en mouvement/static
 
-	Player(Image img, int largeur, int hauteur, int nbImage, float x, float y) throws SlickException {
+	Player(Image img, int largeur, int hauteur, int nbImage, float x, float y, int hp, int move_cap) throws SlickException {
 		this.x = x;
 		this.y = y;
+		this.hp = hp;
+		this.move_capacity = move_cap;
 		this.createAnimation(img, largeur, hauteur, nbImage);
+		
 	}
 
 	protected void createAnimation(Image img, int largeur, int hauteur, int nbImage) throws SlickException {
@@ -86,8 +94,14 @@ public class Player {
 				this.moving = false;
 		} else
 			this.moving = false;
-
 		g.drawAnimation(this.animations[this.direction + (this.moving ? 4 : 0)],this.x, this.y); // Animation du joueur
+	}
+	
+	public void check_movable(Maps map){
+		int col = this.currentCol;
+		int line = this.currentLine;
+		 Case position = map.get_case(line+1, col);
+		 position.setmovable(false);
 	}
 
 	public float getPositionX() {
@@ -124,5 +138,30 @@ public class Player {
 			}
 		}
 	}
+	
+	public int getMove_capacity() {
+		return move_capacity;
+	}
+
+	public void setMove_capacity(int move_capacity) {
+		this.move_capacity = move_capacity;
+	}
+	
+	public int getCurrentLine() {
+		return currentLine;
+	}
+
+	public void setCurrentLine(int currentLine) {
+		this.currentLine = currentLine;
+	}
+
+	public int getCurrentCol() {
+		return currentCol;
+	}
+
+	public void setCurrentCol(int currentCol) {
+		this.currentCol = currentCol;
+	}
 
 }
+
