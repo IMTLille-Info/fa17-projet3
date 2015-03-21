@@ -32,12 +32,10 @@ public class Authentication implements Runnable {
 			out.flush();
 			login = in.readLine();
 			
+			System.out.println(login + " vient de se connecter ");
+			out.flush();
 				
-				out.println("connecte");
-				System.out.println(login + " vient de se connecter ");
-				out.flush();
-				
-				authentifier = true;
+			authentifier = true;
 				
 		 }
 			t2 = new Thread(new Exchange(socket,login));

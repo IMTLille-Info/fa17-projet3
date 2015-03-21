@@ -37,5 +37,4 @@ public class Exchange implements Runnable {
 			System.err.println("Le serveur distant s'est déconnecté !");
 		}
 	}
-
 }
