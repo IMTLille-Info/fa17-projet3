@@ -100,7 +100,7 @@ public class Player {
 	public void check_movable(Maps map){
 		int col = this.currentCol;
 		int line = this.currentLine;
-		 Case position = map.get_case(line+1, col);
+		 Case position = map.get_case(line, col);
 		 position.setmovable(false);
 	}
 
