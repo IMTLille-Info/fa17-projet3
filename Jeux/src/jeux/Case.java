@@ -107,7 +107,7 @@ public class Case extends AbstractComponent {
 		if (button == 0)
 			mouseDown = false; 
 	}
-	  
+	
 	public String toString(String test){
 		return "Nom Case : "+ nomCase + " Position x " + this.posEcran.x + " Position y : " + this.posEcran.y;
 	}

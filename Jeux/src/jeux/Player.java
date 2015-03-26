@@ -121,6 +121,7 @@ public class Player {
 	}
 
 	public void updateImage(int delta) {
+		delta = 16;
 		if (this.moving) {
 			switch (this.direction) {
 				case 0:
