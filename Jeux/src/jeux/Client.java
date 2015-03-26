@@ -51,7 +51,6 @@ public class Client implements Runnable{
 
 				System.out.println(in.readLine());
 				name = sc.nextLine();
-				System.out.println(name);
 				out.println(name);
 				out.flush();
 

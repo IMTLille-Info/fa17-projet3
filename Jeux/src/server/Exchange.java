@@ -19,7 +19,7 @@ public class Exchange implements Runnable {
 	public Exchange(Socket s, String log){
 		
 		socket = s;
-		login = log;
+		login = "nico";
 	}
 	
 	public void run() {
@@ -28,13 +28,12 @@ public class Exchange implements Runnable {
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		out = new PrintWriter(socket.getOutputStream());
 		
-		Thread t3 = new Thread(new Reception(in,login));
-		t3.start();
-		Thread t4 = new Thread(new Emission(out));
-		t4.start();
+		while(!socket.isClosed()){
+			System.out.println(login + " envoi : " + in.readLine());
+		}
 		
 		} catch (IOException e) {
-			System.err.println(login +"s'est déconnecté ");
+			System.err.println(login +" s'est déconnecté ");
 		}
 }
 }
