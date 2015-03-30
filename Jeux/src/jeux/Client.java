@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 
-public class Client implements Runnable{
+public class Client {
 
 	public static Socket socket = null;
 	public static Thread t1;
@@ -40,10 +40,7 @@ public class Client implements Runnable{
 		} catch (IOException e) {
 		  System.err.println("Aucun serveur a l'ecoute du port " + port);
 		}
-	}
-	
-	public void run() {
-
+		
 		try {
 			sc = new Scanner(System.in);
 
