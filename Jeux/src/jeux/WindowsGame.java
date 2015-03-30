@@ -46,7 +46,7 @@ public class WindowsGame extends BasicGame {
 		map = new TiledMap("resources/map/map2.tmx"); // Déclaration de la map
 		ecouteur = new CaseListener(container); // Ecouteurs sur chaque case
 		cases = new Maps(container, ecouteur); // Mise en place des cases
-		this.setPostionJour(10, 10);
+		this.setPostionJour(7, 15);
 		player1 = new Player(new Image("resources/characters/char2.png"), 32, 48, 4, this.Newx, this.Newy, 90,  5); // Création d'un joueur
 		
 		
