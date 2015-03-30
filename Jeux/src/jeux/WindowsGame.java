@@ -9,7 +9,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 /**
  * @author NicolasPicart, JeanCastel
- *
+ * co author, qui n'a pas vraiment réussi à coder... AlexandreD
  */
 
 public class WindowsGame extends BasicGame {
@@ -23,6 +23,7 @@ public class WindowsGame extends BasicGame {
 	public Maps cases; // Maps avec les différentes cases
 
 	public static void main(String[] args) throws SlickException {
+<<<<<<< HEAD
 		//client = new Client("192.168.0.11", 2015);
 
 			AppGameContainer container = new AppGameContainer(new WindowsGame(),xcarte, ycarte, false); // Création de la fenêtre de jeux
@@ -30,6 +31,15 @@ public class WindowsGame extends BasicGame {
 			container.setVSync(true);	
 			container.setTargetFrameRate(60);
 			container.start();
+=======
+		//Thread client = new Thread(new Client("127.0.0.1", 2015));
+		//client.start();
+		AppGameContainer container = new AppGameContainer(new WindowsGame(),xcarte, ycarte, false); // Création de la fenêtre de jeux
+		container.setShowFPS(false); // Cacher l'affichage FPS
+		container.setVSync(true);	
+		container.setTargetFrameRate(60);
+		container.start();
+>>>>>>> 8c2960850baeec9696bf303687bfd03fac66aedd
 	}
 
 	public WindowsGame() {
