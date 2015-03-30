@@ -63,7 +63,7 @@ public class Client implements Runnable{
 	
 	public void send_pos(Player p){
 	
-		out.println("Colonne :" + p.getCurrentCol() + "		Ligne :" + p.getCurrentLine());
+		out.println("Colonne :" + p.getCurrentCol() + ";Ligne :" + p.getCurrentLine());
 		out.flush();
 	}
 	
