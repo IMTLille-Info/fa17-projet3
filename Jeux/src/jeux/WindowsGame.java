@@ -24,14 +24,12 @@ public class WindowsGame extends BasicGame {
 	public Maps cases; // Maps avec les différentes cases
 
 	public static void main(String[] args) throws SlickException {
-
 		// client = new Client("172.27.89.217", 2015);
 		AppGameContainer container = new AppGameContainer(new WindowsGame(),xcarte, ycarte, false); // Création de la fenêtre de jeux
 		container.setShowFPS(false); // Cacher l'affichage FPS
 		container.setVSync(true);
 		container.setTargetFrameRate(60);
 		container.start();
-
 	}
 
 	public WindowsGame() {
@@ -80,7 +78,7 @@ public class WindowsGame extends BasicGame {
 		this.Newy = ecouteur.getY();
 		this.player1.setCurrentCol(ecouteur.getColonne());
 		this.player1.setCurrentLine(ecouteur.getLigne());
-		// client.send_pos(player1);
+		client.send_pos(player1);
 	}
 
 	/*

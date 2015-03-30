@@ -1,34 +1,26 @@
 package server;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+public class Reception {
 
-
-
-public class Reception implements Runnable {
-
-	private BufferedReader in;
-	private String message = null, login = null;
+	private String login = null;
+	private String posx, posy;
 	
-	public Reception(BufferedReader in, String login){
-		
-		this.in = in;
-		this.login = login;
+	public Reception(String log){
+		this.login = log;
 	}
 	
-	public void run() {
-		
-		while(true){
-	        try {
-	        	
-			message = in.readLine();
-			System.out.println(login+" : "+message);
-			
-		    } catch (IOException e) {
-				
-				e.printStackTrace();
-			}
-		}
+	public void setPositions(String message){
+		String origin = message;
+		String [] parts = origin.split(";");
+		this.posx = parts[0];
+		this.posy = parts[1];
 	}
-
+	
+	public String getPosX(){
+		return this.posx;
+	}
+	
+	public String getPosY(){
+		return this.posy;
+	}
 }

@@ -44,8 +44,6 @@ public class Client {
 		try {
 			sc = new Scanner(System.in);
 
-			while (!connect) {
-
 				System.out.println(in.readLine());
 				name = sc.nextLine();
 				out.println(name);
@@ -53,8 +51,6 @@ public class Client {
 
 				System.out.println("Je suis connecté");
 				connect = true;
-
-			}
 
 		} catch (IOException e) {
 
@@ -64,7 +60,7 @@ public class Client {
 	
 	public void send_pos(Player p){
 	
-		out.println("Colonne :" + p.getCurrentCol() + "		Ligne :" + p.getCurrentLine());
+		out.println("Colonne :" + p.getCurrentCol() + ";Ligne :" + p.getCurrentLine());
 		out.flush();
 	}
 	
