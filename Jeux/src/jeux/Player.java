@@ -53,14 +53,13 @@ public class Player {
 	}
 
 	public void move(Graphics g, float toX, float toY) throws SlickException {
-		System.out.println(this.getPositionY() + " - " + toY);
-		if(this.getPositionX() != toX || this.getPositionY() != toY){ // Si la position de départ et l'arrivé sont différentes
+		if(Math.ceil(this.getPositionX()) != Math.ceil(toX) || Math.ceil(this.getPositionY()) != Math.ceil(toY)){ // Si la position de départ et l'arrivé sont différentes
 			this.moving = true;
 			if(this.getPositionX() != toX){
 				if(this.getPositionY() == toY){
 					this.getDirX(toX);
 				}
-				if ((this.direction == 1 && (this.getPositionX() <= toX)) || (this.direction == 3 && (this.getPositionX() >= toX))){
+				if (this.checkVertical(toX)){
 					this.setPositionX(toX); 
 				} else {
 					if(this.getPositionY() != toY){
@@ -68,19 +67,20 @@ public class Player {
 					}
 				}
 			}
-			if(this.getPositionY() != toY && toX == this.getPositionX()){
-				// Une fois que le joueur est bien placé horizontalement on le déplace verticalement
+			if(Math.ceil(this.getPositionY()) != toY && toX == Math.ceil(this.getPositionX())){
 				this.getDirY(toY);
-				if ((this.direction == 0 && (this.getPositionY() <= toY)) || (this.direction == 2 && (this.getPositionY() >= toY))) {
+				if (this.checkHorizontal(toY)) {
 					this.setPositionY(toY);
 					this.moving = false;
 				} else {
 					this.getDirY(toY);
 				}	
-			} else if(this.getPositionY() == toY && toX == this.getPositionX() )
+			} else if(Math.ceil(this.getPositionY()) == toY && toX == Math.ceil(this.getPositionX() ))
 				this.moving = false;
-		} else
+		} else {
 			this.moving = false;
+			this.direction = 2;
+		}
 		g.drawAnimation(this.animations[this.direction + (this.moving ? 4 : 0)],this.x, this.y); // Animation du joueur
 	}
 	
@@ -96,6 +96,26 @@ public class Player {
 			this.direction = 0;
 		else // Si la destination se trouve en dessous du personnage
 			this.direction = 2;
+	}
+	
+	private boolean checkVertical(float toX){
+		return (
+				this.direction == 1 && 
+				((Math.ceil(this.getPositionX()) <= Math.ceil(toX)) ||  ((Math.ceil(this.getPositionX())-1 <= Math.ceil(toX))))
+			   ) || (
+			    this.direction == 3 && 
+			    ((Math.ceil(this.getPositionX()) >= Math.ceil(toX)) ||  ((Math.ceil(this.getPositionX())+1 >= Math.ceil(toX))))
+			   );
+	}
+	
+	private boolean checkHorizontal(float toY){
+		return (	
+				this.direction == 0 && 
+				((Math.ceil(this.getPositionY()) <= Math.ceil(toY)) || (Math.ceil(this.getPositionY())-1 <= Math.ceil(toY)))
+			   ) || (
+			    this.direction == 2 && 
+			    ((Math.ceil(this.getPositionY()) >= Math.ceil(toY)) || (Math.ceil(this.getPositionY())+1 >= Math.ceil(toY)))
+			   );
 	}
 	
 	public void check_movable(Maps map){

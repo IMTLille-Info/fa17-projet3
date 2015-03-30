@@ -47,4 +47,9 @@ public class Maps {
 	public Case get_case(int col, int line){
 		return listeCases.get(col+"."+line);
 	}
+	
+	public Case get_coordonnees(int col, int line){
+		return listeCases.get(col+"."+line);
+	}
+	
 }
