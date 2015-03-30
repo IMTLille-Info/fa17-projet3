@@ -47,8 +47,6 @@ public class Client implements Runnable{
 		try {
 			sc = new Scanner(System.in);
 
-			while (!connect) {
-
 				System.out.println(in.readLine());
 				name = sc.nextLine();
 				out.println(name);
@@ -56,8 +54,6 @@ public class Client implements Runnable{
 
 				System.out.println("Je suis connecté");
 				connect = true;
-
-			}
 
 		} catch (IOException e) {
 

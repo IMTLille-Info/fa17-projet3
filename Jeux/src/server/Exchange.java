@@ -13,13 +13,12 @@ public class Exchange implements Runnable {
 	private Socket socket = null;
 	private BufferedReader in = null;
 	private PrintWriter out = null;
-	private String login = "zero";
+	private String login = "client", message;
 	private Thread t3, t4;
 	
 	public Exchange(Socket s, String log){
-		
 		socket = s;
-		login = "nico";
+		login = log;
 	}
 	
 	public void run() {
@@ -29,7 +28,10 @@ public class Exchange implements Runnable {
 		out = new PrintWriter(socket.getOutputStream());
 		
 		while(!socket.isClosed()){
-			System.out.println(login + " envoi : " + in.readLine());
+			message = in.readLine();
+			if (message != null) {
+				System.out.println(login + " envoi : " + message);
+			}
 		}
 		
 		} catch (IOException e) {
