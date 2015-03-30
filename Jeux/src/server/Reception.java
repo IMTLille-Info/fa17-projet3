@@ -23,4 +23,8 @@ public class Reception {
 	public String getPosY(){
 		return this.posy;
 	}
+	
+	public String getLogin(){
+		return this.login;
+	}
 }

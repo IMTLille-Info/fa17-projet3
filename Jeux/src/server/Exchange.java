@@ -29,8 +29,10 @@ public class Exchange implements Runnable {
 		
 		while(!socket.isClosed()){
 			message = in.readLine();
-			Reception test = new Reception(message);
+			Reception test = new Reception(login);
+			
 			if (message != null) {
+				test.setPositions(message);
 				
 				System.out.println(test.getPosX());
 				System.out.println(test.getPosY());
