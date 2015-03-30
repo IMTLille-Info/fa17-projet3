@@ -17,7 +17,7 @@ public class Client implements Runnable{
 	private PrintWriter out = null;
 	
 	public static Thread t2;
-	public static String login = null, pass = null, message = null;
+	public static String name = null;
 	private BufferedReader in = null;
 	private Scanner sc = null;
 	private boolean connect = false;
@@ -30,7 +30,7 @@ public class Client implements Runnable{
 			
 			System.out.println("Demande de connexion");
 			socket = new Socket(InetAddress.getByName(ip), port);
-			System.out.println("Connexion établie avec le serveur, authentification :"); // Si le message s'affiche c'est que je suis connecté
+			System.out.println("Connexion établie avec le serveur"); // Si le message s'affiche c'est que je suis connecté
 			
 			out = new PrintWriter(socket.getOutputStream());
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -50,8 +50,8 @@ public class Client implements Runnable{
 			while (!connect) {
 
 				System.out.println(in.readLine());
-				login = sc.nextLine();
-				out.println(login);
+				name = sc.nextLine();
+				out.println(name);
 				out.flush();
 
 				System.out.println("Je suis connecté");
@@ -67,8 +67,11 @@ public class Client implements Runnable{
 	
 	public void send_pos(Player p){
 	
-		out.println("X :" + p.getPositionX());
-		out.println("Y :" + p.getPositionY());
+		out.println("Colonne :" + p.getCurrentCol() + "		Ligne :" + p.getCurrentLine());
 		out.flush();
+	}
+	
+	public boolean isConnected(){
+		return this.connect;
 	}
 }
