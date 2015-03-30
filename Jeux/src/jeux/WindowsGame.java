@@ -25,7 +25,6 @@ public class WindowsGame extends BasicGame {
 	public static void main(String[] args) throws SlickException {
 
 		client = new Client("127.0.0.1", 2015);
-		client.run();
 
 			AppGameContainer container = new AppGameContainer(new WindowsGame(),xcarte, ycarte, false); // Création de la fenêtre de jeux
 			container.setShowFPS(false); // Cacher l'affichage FPS
@@ -66,7 +65,7 @@ public class WindowsGame extends BasicGame {
 		this.Newy = ecouteur.getY();
 		this.player1.setCurrentCol(ecouteur.getColonne());
 		this.player1.setCurrentLine(ecouteur.getLigne());
-		//client.send_pos(player1);
+		client.send_pos(player1);
 	}
 
 	/*
