@@ -60,7 +60,7 @@ public class Client {
 	
 	public void send_pos(Player p){
 	
-		out.println("Colonne :" + p.getCurrentCol() + ";Ligne :" + p.getCurrentLine());
+		out.println(p.getCurrentCol() + ";" + p.getCurrentLine());
 		out.flush();
 	}
 	

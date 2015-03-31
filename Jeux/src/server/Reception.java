@@ -3,25 +3,25 @@ package server;
 public class Reception {
 
 	private String login = null;
-	private String posx, posy;
+	private int posX, posY;
 	
 	public Reception(String log){
 		this.login = log;
 	}
 	
-	public void setPositions(String message){
+	public void changePositions(String message){
 		String origin = message;
 		String [] parts = origin.split(";");
-		this.posx = parts[0];
-		this.posy = parts[1];
+		this.posX = Integer.parseInt(parts[0]);
+		this.posY = Integer.parseInt(parts[1]);
 	}
 	
-	public String getPosX(){
-		return this.posx;
+	public int getPosX(){
+		return this.posX;
 	}
 	
-	public String getPosY(){
-		return this.posy;
+	public int getPosY(){
+		return this.posY;
 	}
 	
 	public String getLogin(){

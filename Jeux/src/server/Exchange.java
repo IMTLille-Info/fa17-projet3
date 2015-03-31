@@ -14,7 +14,7 @@ public class Exchange implements Runnable {
 	private BufferedReader in = null;
 	private PrintWriter out = null;
 	private String login = "client", message;
-	private Thread t3, t4;
+	
 	
 	public Exchange(Socket s, String log){
 		socket = s;
@@ -27,15 +27,15 @@ public class Exchange implements Runnable {
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		out = new PrintWriter(socket.getOutputStream());
 		
+		Reception reception = new Reception(login);
+		Emission emission = new Emission(out);
+		
 		while(!socket.isClosed()){
 			message = in.readLine();
-			Reception test = new Reception(login);
 			
 			if (message != null) {
-				test.setPositions(message);
-				
-				System.out.println(test.getPosX());
-				System.out.println(test.getPosY());
+				reception.changePositions(message);
+				emission.sendPos(reception.getPosX(), reception.getPosY());
 			}
 		}
 		

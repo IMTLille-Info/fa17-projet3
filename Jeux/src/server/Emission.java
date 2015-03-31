@@ -1,30 +1,23 @@
 package server;
 
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 
-public class Emission implements Runnable {
+public class Emission{
 
 
 	private PrintWriter out;
 	private String message = null;
-	private Scanner sc = null;
 	
 	public Emission(PrintWriter out) {
 		this.out = out;
 	}
 	
-	public void run() {
+	public void sendPos(int x, int y){
 		
-		  sc = new Scanner(System.in);
-		  
-		  while(true){
-			    System.out.println("Votre message :");
-				message = sc.nextLine();
-				out.println(message);
-			    out.flush();
-			  }
+		message = x + ";" + y;
+		
+		out.println(message);
+		out.flush();
 	}
-
 }
