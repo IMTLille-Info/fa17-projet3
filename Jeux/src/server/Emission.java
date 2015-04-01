@@ -13,9 +13,9 @@ public class Emission{
 		this.out = out;
 	}
 	
-	public void sendPos(int x, int y){
+	public void sendPos(String name, int x, int y){
 		
-		message = x + ";" + y;
+		message = name + ";" + x + ";" + y;
 		
 		out.println(message);
 		out.flush();

@@ -35,7 +35,7 @@ public class Exchange implements Runnable {
 			
 			if (message != null) {
 				reception.changePositions(message);
-				emission.sendPos(reception.getPosX(), reception.getPosY());
+				emission.sendPos(reception.getLogin(), reception.getPosX(), reception.getPosY());
 			}
 		}
 		

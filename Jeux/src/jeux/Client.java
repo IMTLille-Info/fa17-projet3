@@ -9,6 +9,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
+import server.Accept_connexion;
+
 
 public class Client {
 
@@ -16,7 +18,7 @@ public class Client {
 	public static Thread t1;
 	private PrintWriter out = null;
 	
-	public static Thread t2;
+	public static Thread receive;
 	public static String name = null;
 	private BufferedReader in = null;
 	private Scanner sc = null;
@@ -51,6 +53,9 @@ public class Client {
 
 				System.out.println("Je suis connecté");
 				connect = true;
+				
+				receive = new Thread(new Receive(in));
+				receive.start();
 
 		} catch (IOException e) {
 
